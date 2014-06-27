@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+	<LinearLayout
+	    android:id="@+id/btn_holder"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="horizontal"
+	    android:weightSum="100" >
+
+	    <Button
+	        android:id="@+id/btn_prev"
+	        style="@android:attr/button"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="50"
+	        android:text="@string/prev" />
+
+	    <Button
+	        android:id="@+id/btn_nxt"
+	        style="@android:attr/button"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="50"
+	        android:text="@string/next" />
+	</LinearLayout>
+    
+    <ViewFlipper
+        android:id="@+id/flipper"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/btn_holder"
+        android:gravity="center" >
+<!-- --> 
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <EditText
+                android:id="@+id/et_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/iv_add_pic"
+                android:ems="10"
+                android:hint="@string/autowala_name"
+                android:inputType="textPersonName">
+                <requestFocus />
+            </EditText>
+
+            <EditText
+                android:id="@+id/et_age"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignRight="@+id/iv_add_pic"
+                android:layout_below="@+id/et_name"
+                android:ems="10"
+                android:hint="@string/autowala_age"
+                android:inputType="number" >
+
+            </EditText>
+
+            <ImageView
+                android:id="@+id/iv_add_pic"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:contentDescription="@string/photo_discriptor"
+                android:src="@drawable/ic_launcher" />
+
+            <EditText
+                android:id="@+id/et_ad_no"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="36dp"
+                android:layout_toRightOf="@+id/iv_add_pic"
+                android:hint="@string/ad_no"
+                android:ems="10" />
+
+            <EditText
+                android:id="@+id/et_camp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/et_ad_no"
+                android:layout_below="@+id/et_ad_no"
+                android:hint="@string/camp_no"
+                android:ems="10" >
+
+            </EditText>
+
+            <EditText
+                android:id="@+id/et_auto_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/et_name"
+                android:layout_toRightOf="@+id/et_age"
+                android:ems="10"
+                android:hint="@string/autowala_auto_number" />
+
+            <EditText
+                android:id="@+id/et_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/et_age"
+                android:ems="10"
+                android:hint="@string/autowala_contact"
+                android:inputType="phone" />
+            
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <EditText
+                android:id="@+id/et_driving"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/et_edu"
+                android:ems="10"
+                android:hint="@string/autowala_driving"
+                android:inputType="number" />
+
+            <TextView
+                android:id="@+id/tv_label_kids"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/et_add"
+                android:text="@string/label_ki"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <EditText
+                android:id="@+id/et_income"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/et_driving"
+                android:ems="10"
+                android:hint="@string/autowala_income"
+                android:inputType="number" />
+
+            <EditText
+                android:id="@+id/et_add"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/et_income"
+                android:ems="10"
+                android:hint="@string/autowala_address"
+                android:inputType="textPostalAddress" />
+
+            <TextView
+                android:id="@+id/tv_label_gi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:text="@string/label_gi"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <EditText
+                android:id="@+id/et_edu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/tv_label_gi"
+                android:ems="10"
+                android:hint="@string/autowala_edu"
+                android:inputType="textPersonName" />
+            
+			<ScrollView 
+			    android:layout_width="fill_parent"
+                android:layout_height="wrap_content" 
+                android:layout_below="@id/tv_label_kids">
+	            <LinearLayout
+	                android:id="@+id/kidsLayout"
+	                android:layout_width="fill_parent"
+	                android:layout_height="wrap_content"
+	                android:orientation="vertical" >
+
+	                <LinearLayout
+	                    android:layout_width="fill_parent"
+	                    android:layout_height="match_parent"
+	                    android:orientation="horizontal" >
+
+	                    <Button
+	                        android:id="@+id/btn_add_child"
+	                        android:layout_width="fill_parent"
+	                        android:layout_height="wrap_content"
+	                        android:layout_weight="1"
+	                        android:text="Add Child" />
+
+	                    <Button
+	                        android:id="@+id/btn_remove_child"
+	                        android:layout_width="fill_parent"
+	                        android:layout_height="wrap_content"
+	                        android:layout_weight="1"
+	                        android:text="Remove Child" />
+	                </LinearLayout>
+
+	            </LinearLayout>
+            </ScrollView>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/tv_label_oi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_oi"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <EditText
+                android:id="@+id/et_owner_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/owner_name"
+                android:inputType="textPersonName" >
+
+                <requestFocus />
+            </EditText>
+
+            <EditText
+                android:id="@+id/et_owner_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/owner_address"
+                android:inputType="textPostalAddress" />
+
+            <EditText
+                android:id="@+id/et_owner_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/owner_contact"
+                android:inputType="phone" />
+
+            <TextView
+                android:id="@+id/tv_label_ref"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_ref"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <EditText
+                android:id="@+id/et_ref"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"                
+                android:ems="10"
+                android:hint="@string/label_ref"
+                android:inputType="textMultiLine" />
+        </LinearLayout>
+<!-- -->
+        <LinearLayout android:layout_width="fill_parent"
+		    android:layout_height="match_parent"
+		    android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/tv_label_check"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_chk"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <CheckBox
+                android:id="@+id/cb_account"
+                android:layout_width="wrap_content"
+                android:layout_height="?android:attr/listPreferredItemHeightSmall"
+                android:textAppearance="?android:attr/textAppearanceLarge" 
+                android:text="@string/cb_account" />
+
+            <CheckBox
+                android:id="@+id/cb_insuarance"
+                android:layout_width="wrap_content"
+                android:layout_height="?android:attr/listPreferredItemHeightSmall"
+                android:textAppearance="?android:attr/textAppearanceLarge" 
+                android:text="@string/cb_insurance" />
+
+            <CheckBox
+                android:id="@+id/cb_photo"
+                android:layout_width="wrap_content"
+                android:layout_height="?android:attr/listPreferredItemHeightSmall"
+                android:textAppearance="?android:attr/textAppearanceLarge" 
+                android:text="@string/cb_photo" />
+
+            <CheckBox
+                android:id="@+id/cb_ad"
+                android:layout_width="wrap_content"
+                android:layout_height="?android:attr/listPreferredItemHeightSmall"
+                android:textAppearance="?android:attr/textAppearanceLarge" 
+                android:text="@string/cb_ad" />
+
+            <CheckBox
+                android:id="@+id/cb_tobacco"
+                android:layout_width="wrap_content"
+                android:layout_height="?android:attr/listPreferredItemHeightSmall"
+                android:textAppearance="?android:attr/textAppearanceLarge" 
+                android:text="@string/cb_tobacco" />
+
+            <Button
+		        android:id="@+id/btn_save"
+		        style="@android:attr/button"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:text="@string/save" />            
+        </LinearLayout>
+    </ViewFlipper>
+</RelativeLayout>

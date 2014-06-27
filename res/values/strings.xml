@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">InMotionSurvey</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="next">Next</string>
+    <string name="prev">Prev</string>
+    <string name="save">Save</string>
+
+    <string name="label_bi">Basic Information</string>
+    <string name="label_gi">General Information</string>
+    <string name="label_oi">Owners Information</string>
+    <string name="label_ki">Kids</string>
+    <string name="label_ref">References</string>
+    <string name="label_chk">Check List</string>
+    
+    <string name="camp_no">Camp</string>
+    <string name="ad_no">Ad. No.</string>
+    
+    <string name="autowala_name">Name</string>
+    <string name="autowala_address">Address</string>
+    <string name="autowala_contact">Phone</string>
+    <string name="autowala_age">Age</string>
+    <string name="autowala_auto_number">Auto Number</string>
+    <string name="autowala_driving">Driving Since</string>
+    <string name="autowala_income">Income</string>
+    <string name="autowala_num_boy">Boys</string>
+    <string name="autowala_num_girls">Girls</string>
+    <string name="autowala_edu">Education</string>
+    <string name="autowala_ref">References of some sort</string>
+    <string name="owner_name">Owner\'s Name</string>
+    <string name="owner_address">Owner\'s Address</string>
+    <string name="owner_contact">Owner\'s Phone</string>
+    
+    <string name="photo_discriptor">This is the photo of the Autowala</string>
+    
+    <string name="cb_account">Account</string>
+    <string name="cb_insurance">Insurance</string>
+    <string name="cb_photo">Photo</string>
+    <string name="cb_ad">Ad Pasted</string>
+    <string name="cb_tobacco">Tobacco</string>
+    
+    <string name="menu_add">Add</string>
+</resources>

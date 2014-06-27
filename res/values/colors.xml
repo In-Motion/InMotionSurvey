@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="LightGreenNormal">#ff66ce5b</color>
+    <color name="LightGreenPressed">#ff52ae69</color>
+</resources>
