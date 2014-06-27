@@ -13,6 +13,7 @@ import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,6 +32,15 @@ public class ViewFragment extends ListFragment {
 		//
 	}	
 	
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		
+		setHasOptionsMenu(true);
+	}
+
+
+
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		
@@ -100,10 +110,15 @@ public class ViewFragment extends ListFragment {
 		
 		return super.onContextItemSelected(item);
 	}
-	
-	
-
+		 
     @Override
+	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+
+		super.onCreateOptionsMenu(menu, inflater);
+		inflater.inflate(R.menu.main, menu);
+	}
+
+	@Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
