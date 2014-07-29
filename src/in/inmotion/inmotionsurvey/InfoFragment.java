@@ -59,7 +59,7 @@ public class InfoFragment extends Fragment{
 		autoNumber.setText(autoWala.getAutoNumber());
 		contact.setText(autoWala.getContact());
 		education.setText(autoWala.getEducation());
-		experience.setText(autoWala.getExperiecne());
+		experience.setText(autoWala.getExperience());
 		income.setText(autoWala.getIncome());
 		address.setText(autoWala.getAddress());
 		owner.setText(autoWala.getOwner());

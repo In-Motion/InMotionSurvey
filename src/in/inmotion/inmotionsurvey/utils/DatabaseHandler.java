@@ -94,7 +94,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		values.put(KEY_AGE, autoWala.getAge());
 		values.put(KEY_AUTO_NUMBER, autoWala.getAutoNumber());
 		values.put(KEY_EDU, autoWala.getEducation());
-		values.put(KEY_EXP, autoWala.getExperiecne());
+		values.put(KEY_EXP, autoWala.getExperience());
 		values.put(KEY_INCOME, autoWala.getIncome());
 		values.put(KEY_KIDS_BOYS, autoWala.getBoys());
 		values.put(KEY_KIDS_GIRLS, autoWala.getGirls());
@@ -118,7 +118,31 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	public AutoWala getAutoWala(String id){
 		SQLiteDatabase db = this.getReadableDatabase();
 		
-		String[] columns = {KEY_ID, KEY_NAME};
+		String[] columns = {
+				KEY_ID,
+				KEY_NAME,
+				KEY_ADDRESS,
+				KEY_CONTACT,
+				KEY_AGE,
+				KEY_AUTO_NUMBER,
+				KEY_EDU,
+				KEY_EXP,
+				KEY_INCOME,
+				KEY_KIDS_BOYS,
+				KEY_KIDS_GIRLS,
+				KEY_KIDS,
+				KEY_NAME_OWNER,
+				KEY_CONTACT_OWNER,
+				KEY_ADDRESS_OWNER,
+				KEY_CHK_ACCOUNT,
+				KEY_CHK_INSURANCE,
+				KEY_CHK_PHOTO,
+				KEY_CHK_AD,
+				KEY_CHK_TOBACCO,
+				KEY_REFERENCE,
+				KEY_AD_NO,
+				KEY_CAMPAIGN
+		};
 		Cursor cursor = db.query(TABLE_NAME, 
 				columns, KEY_ID + "=?", new String[] {id},
 				null, null, null, null);
@@ -128,8 +152,21 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		
 		int iId = cursor.getColumnIndex(KEY_ID);
 		int iName = cursor.getColumnIndex(KEY_NAME);
+		int iAddress = cursor.getColumnIndex(KEY_ADDRESS);
+//		int iContact = cursor.getString(columnIndex)
 		
 		AutoWala autoWala = new AutoWala(cursor.getString(iId),cursor.getString(iName));
+		
+		autoWala.setAddress(cursor.getString(iAddress));
+		autoWala.setContact(cursor.getString(3));
+		autoWala.setAge(cursor.getString(4));
+		autoWala.setAutoNumber(cursor.getString(5));
+		autoWala.setEducation(cursor.getString(6));
+		autoWala.setExperience(cursor.getString(7));
+		autoWala.setIncome(cursor.getString(8));
+		autoWala.setKids(cursor.getString(11));
+		autoWala.setOwner(cursor.getString(12));
+		
 		cursor.close();
 		db.close();
 		return autoWala;

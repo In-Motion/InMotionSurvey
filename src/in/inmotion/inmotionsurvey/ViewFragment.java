@@ -17,9 +17,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.AdapterView.AdapterContextMenuInfo;
-import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -78,7 +76,7 @@ public class ViewFragment extends ListFragment {
 		
 		final FragmentTransaction ft = getFragmentManager().beginTransaction();
 		ft.replace(R.id.container, fragment);
-		ft.addToBackStack(null);
+		ft.addToBackStack("view_info");
 		ft.commit();
 	}
 	
@@ -86,9 +84,9 @@ public class ViewFragment extends ListFragment {
 	public void onCreateContextMenu(ContextMenu menu, View v,
 			ContextMenuInfo menuInfo) {
 		super.onCreateContextMenu(menu, v, menuInfo);
-		menu.setHeaderTitle("Baka");
+		menu.setHeaderTitle("Options");
+		menu.add(0, v.getId(), 0, "edit");
 		menu.add(0, v.getId(), 0, "delete");
-		menu.add(0, v.getId(), 0, "SO da");
 	}
 
 	@Override
@@ -126,11 +124,25 @@ public class ViewFragment extends ListFragment {
         int id = item.getItemId();
         if (id == R.id.menu_add) {
         	getFragmentManager().beginTransaction()
-            .add(R.id.container, new AddFragment())
+            .replace(R.id.container, new AddFragment())
+            .addToBackStack("view_add")
             .commit();
             return true;
         }
         return super.onOptionsItemSelected(item);
     }
+
+	@Override
+	public void onResume() {
+		updateList();
+		super.onResume();
+	}
 	
+	private void updateList(){
+		DatabaseHandler db = new DatabaseHandler(getActivity());
+		this.autoWalas = db.getAllAutoWale();
+		
+		mAdapter = new ListArrayAdapter(getActivity(), autoWalas);
+		setListAdapter(mAdapter);
+	}
 }

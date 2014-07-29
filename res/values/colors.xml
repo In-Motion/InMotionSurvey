@@ -2,4 +2,5 @@
 <resources>
     <color name="LightGreenNormal">#ff66ce5b</color>
     <color name="LightGreenPressed">#ff52ae69</color>
+    <color name="Background">#fff0f0f0</color>
 </resources>

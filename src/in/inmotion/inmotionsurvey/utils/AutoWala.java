@@ -91,7 +91,7 @@ public class AutoWala {
 		this.education = edu;
 	}
 	
-	public void setExperiecne(String exp){
+	public void setExperience(String exp){
 		this.experience = exp;
 	}
 	
@@ -184,7 +184,7 @@ public class AutoWala {
 		return this.education;
 	}
 	
-	public String getExperiecne(){
+	public String getExperience(){
 		return this.experience;
 	}
 	

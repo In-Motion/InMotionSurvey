@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputType;
 import android.util.Log;
@@ -21,12 +22,16 @@ import android.view.ViewGroup.LayoutParams;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 public class AddFragment extends Fragment{
+	
+	private static final int IMAGE_REQUEST = 1;  
 	
 	private View rootView;
 	
@@ -34,6 +39,7 @@ public class AddFragment extends Fragment{
 	//Buttons
 	private Button nextButton, prevButton, saveButton;
 	//View 1
+	private ImageView picView;
 	private EditText adNoText, campText, nameText, ageText, autoNoText, contactText;
 	//View 2
 	private EditText addressText, eduText, expText, incomeText; //, boysText, girlsText;
@@ -63,6 +69,7 @@ public class AddFragment extends Fragment{
 	
 		rootView = inflater.inflate(R.layout.fragment_add, container, false);
 		
+		Toast.makeText(getActivity(), MainActivity.user, Toast.LENGTH_LONG).show();
 		initControls();	
 		setEventHandlers();
 		
@@ -76,7 +83,8 @@ public class AddFragment extends Fragment{
 		nextButton = (Button) rootView.findViewById(R.id.btn_nxt);
 		prevButton = (Button) rootView.findViewById(R.id.btn_prev);
 		saveButton = (Button) rootView.findViewById(R.id.btn_save);
-
+		
+		picView = (ImageView) rootView.findViewById(R.id.iv_add_pic);
 		adNoText = (EditText) rootView.findViewById(R.id.et_ad_no);
 		campText = (EditText) rootView.findViewById(R.id.et_camp);
 		nameText = (EditText) rootView.findViewById(R.id.et_name);
@@ -152,6 +160,12 @@ public class AddFragment extends Fragment{
 				return mDetector.onTouchEvent(event);
 			}
 		});
+		picView.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent();
+			}
+		});
 		nextButton.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -195,14 +209,14 @@ public class AddFragment extends Fragment{
 			public void onClick(View v) {				
 				if(isValid()){
 					AutoWala autoWala = new AutoWala();
-					autoWala.setId("" + System.currentTimeMillis());
+					autoWala.setId(MainActivity.user + "_" + System.currentTimeMillis()/1000);
 					autoWala.setName(nameText.getText().toString());
 					autoWala.setAddress(addressText.getText().toString());
 					autoWala.setContact(contactText.getText().toString());
 					autoWala.setAge(ageText.getText().toString());
 					autoWala.setAutoNumber(autoNoText.getText().toString());
 					autoWala.setEducation(eduText.getText().toString());
-					autoWala.setExperiecne(expText.getText().toString());
+					autoWala.setExperience(expText.getText().toString());
 					autoWala.setIncome(incomeText.getText().toString());
 //					autoWala.setBoys(boysText.getText().toString());
 //					autoWala.setGirls(girlsText.getText().toString());7
@@ -232,6 +246,11 @@ public class AddFragment extends Fragment{
 					    String selection = (String) btn.getText();
 						Log.d("SEX ", i+ " "+selection);
 					}
+//					getActivity().getFragmentManager().beginTransaction().remove(AddFragment.this).commit();
+					getFragmentManager().beginTransaction()
+		            .replace(R.id.container, new ViewFragment())
+//		            .addToBackStack("view_add")
+		            .commit();
 				} else {
 					// invalid >_<		
 				}
